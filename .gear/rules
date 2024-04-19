@@ -1,0 +1,4 @@
+#tar: v@version@:.
+tar: .
+spec: .gear/python3-module-PyMuPDF.spec
+copy?: .gear/*.patch
