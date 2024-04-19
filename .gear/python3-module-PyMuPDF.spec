@@ -20,6 +20,7 @@ BuildRequires: python3-module-setuptools
 BuildRequires: mupdf-devel
 BuildRequires: swig
 BuildRequires: libfreetype-devel
+BuildRequires: libstdc++10-devel libstdc++-devel-static cpp libstdc++-devel build-essential
 
 %if_with check
 BuildRequires: python3-module-pytest
@@ -32,9 +33,7 @@ BuildRequires: python3-module-pytest
 %setup
 
 %build
-LDFLAGS="-L /usr/include/freetype2/"
-CFLAGS="-I /usr/include/freetype2/"
-PYMUPDF_SETUP_MUPDF_BUILD="/usr/include/mupdf/"
+#PYMUPDF_SETUP_IMPLEMENTATIONS=a CFLAGS="-I/usr/include/freetype2/ -I/usr/include/c++/13/ -I/usr/include/"  PYMUPDF_SETUP_MUPDF_BUILD="" %pyproject_build
 %pyproject_build
 
 %install
