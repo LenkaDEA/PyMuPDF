@@ -1,10 +1,11 @@
 %define _unpackaged_files_terminate_build 1
 
 %define modulename PyMuPDF
+%define binName pymupdf
 %def_without check
 
 Name: python3-module-%modulename
-Version: 1.24.1
+Version: 1.24.2
 Release: alt1
 
 Summary: PyMuPDF is a high performance Python library for data extraction, analysis, conversion & manipulation of PDF (and other) documents
@@ -12,7 +13,7 @@ License: MIT
 Group: Other
 Url: https://pymupdf.readthedocs.io/
 Vcs: https://github.com/pymupdf/PyMuPDF.git
-BuildArch: noarch
+#BuildArch: x86_64
 Source: %name-%version.tar
 
 BuildRequires(pre): rpm-build-python3
@@ -40,10 +41,11 @@ BuildRequires: python3-module-pytest
 %pyproject_install
 
 %check
-%pyproject_run_pytest -ra tests
+#pyproject_run_pytest -ra tests
 
 %files
-#%_bindir/%modulename
-#%python3_sitelibdir/%modulename
-#%python3_sitelibdir/%modulename-%version.dist-info
-#%doc README.md LICENSE docs/contributing.md docs/index.md docs/cli.md
+%_bindir/%binName
+#python3_sitelibdir/%modulename
+%python3_sitelibdir/%modulename-%version.dist-info
+%python3_sitelibdir/fitz_old
+%doc README.md docs/

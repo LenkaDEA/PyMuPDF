@@ -168,7 +168,7 @@ import pipcl
 
 os.environ["PYMUPDF_SETUP_MUPDF_BUILD"] = ""
 os.environ["PYMUPDF_SETUP_IMPLEMENTATIONS"] = "a"
-os.environ["CFLAGS"] = "$CFLAGS -I/usr/include/freetype2/ -I/usr/include/c++/13/ -I/usr/include/"
+os.environ["CFLAGS"] = "-no-pie -c -I/usr/include/freetype2/ -I/usr/include/c++/13/ -I/usr/include/"
 
 _log_prefix = None
 def log( text):
